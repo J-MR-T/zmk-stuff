@@ -1,0 +1,6 @@
+[submodule "zmk-glove80"]
+	path = zmk-glove80
+	url = git@github.com:J-MR-T/zmk-glove80.git
+[submodule "zmk-imprint"]
+	path = zmk-imprint
+	url = git@github.com:J-MR-T/zmk-imprint.git
