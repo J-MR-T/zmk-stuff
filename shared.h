@@ -18,3 +18,5 @@
             hold-trigger-key-positions = <KEYS_MAIN_L KEYS_THUMBS_ALL>; \
         };
 
+#define DEFAULT_HOME_ROW_MAP \
+        &hrms_l LCTRL ESC        &hrms_l LGUI A    &hrms_l LALT S       &hrms_l LCTRL D       &hrms_l LSHIFT F       &kp G                               &kp H   &hrms_r RSHIFT J   &hrms_r RCTRL K       &hrms_r LALT L       &hrms_r RGUI SEMI    &lt UMLAUT SQT
