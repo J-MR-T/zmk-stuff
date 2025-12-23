@@ -8,3 +8,13 @@
         bindings = <&kp>, <&kp>;              \
         hold-trigger-on-release;
 
+#define HRM_BEHAVIORS                                                   \
+        hrms_l: hrms_l_behavior {                                       \
+            SHARED_HRM_COMPONENTS                                       \
+            hold-trigger-key-positions = <KEYS_MAIN_R KEYS_THUMBS_ALL>; \
+        };                                                              \
+        hrms_r: hrms_r_behavior {                                       \
+            SHARED_HRM_COMPONENTS                                       \
+            hold-trigger-key-positions = <KEYS_MAIN_L KEYS_THUMBS_ALL>; \
+        };
+
