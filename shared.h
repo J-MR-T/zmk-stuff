@@ -1,3 +1,6 @@
+#ifndef SHARED_H
+#define SHARED_H
+
 #define SHARED_HRM_COMPONENTS                 \
         compatible = "zmk,behavior-hold-tap"; \
         #binding-cells = <2>;                 \
@@ -19,4 +22,10 @@
         };
 
 #define DEFAULT_HOME_ROW_MAP \
-        &hrms_l LCTRL ESC        &hrms_l LGUI A    &hrms_l LALT S       &hrms_l LCTRL D       &hrms_l LSHIFT F       &kp G                               &kp H   &hrms_r RSHIFT J   &hrms_r RCTRL K       &hrms_r LALT L       &hrms_r RGUI SEMI    &lt UMLAUT SQT
+ &kp LCTRL  &kp A     &kp S     &kp D     &kp F   &kp G                                          &kp H       &kp J      &kp K     &kp L    &kp SEMI &kp SQT
+
+        // this is the correct version, remove the above one once debugging is done
+        //&hrms_l LCTRL ESC        &hrms_l LGUI A    &hrms_l LALT S       &hrms_l LCTRL D       &hrms_l LSHIFT F       &kp G                               &kp H   &hrms_r RSHIFT J   &hrms_r RCTRL K       &hrms_r LALT L       &hrms_r RGUI SEMI    &lt UMLAUT SQT
+        
+
+#endif // SHARED_H
