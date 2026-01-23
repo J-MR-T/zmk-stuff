@@ -34,7 +34,7 @@
         nav_sticky_shift: nav_sticky_shift_behavior { \
             SHARED_MODTAP_COMPONENTS \
             #binding-cells = <0>;                 \
-            bindings = <&mo NAV>, <&sk LSHFT>;              \
+            bindings = <&mo NAV &sk LSHFT>;              \
             hold-trigger-key-positions = <KEYS_MAIN_ALL>; \
         };
         
