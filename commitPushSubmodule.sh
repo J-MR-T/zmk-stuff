@@ -7,6 +7,8 @@ errexit() {
     exit 1
 }
 
+# {{{ checks
+
 # sanity check that we're executing in the zmk-stuff repo
 git remote get-url origin 2>/dev/null | grep -q 'zmk-stuff' || errexit "This script must be run from within the zmk-stuff repository, but git remote was $(git remote get-url origin 2>/dev/null), not zmk-stuff."
 
@@ -36,6 +38,10 @@ git diff --quiet --cached || errexit "There are staged changes in the parent rep
 #
 # if there are UNTRACKED changes (?? in short porcelain) in the parent repo, abort
 git status --ignore-submodules --short --untracked=all | grep -q '??' && errexit "There are untracked files in the parent repository. Please commit or remove them before pushing."
+
+# }}} end checks
+
+# actual actions
 
 # if there are changes in the parent repo *other than submodule changes*, commit them automatically for the user
 git status --ignore-submodules --short --untracked=no | grep -q ' ' && {
