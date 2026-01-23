@@ -8,7 +8,7 @@ errexit() {
 }
 
 # sanity check that we're executing in the zmk-stuff repo
-git remote get-url origin 2>/dev/null | grep -q 'zmk-stuff' || errexit "This script must be run from within the zmk-stuff repository."
+git remote get-url origin 2>/dev/null | grep -q 'zmk-stuff' || errexit "This script must be run from within the zmk-stuff repository, but git remote was $(git remote get-url origin 2>/dev/null), not zmk-stuff."
 
 # sanity check that (exactly one) child path argument is provided...
 [ $# -eq 1 ] || errexit "No child path argument provided."
