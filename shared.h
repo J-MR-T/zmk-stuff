@@ -30,11 +30,11 @@
             hold-trigger-key-positions = <KEYS_MAIN_L KEYS_THUMBS_ALL>; \
         };
 
-#define NAV_LAYER_STICKY_SHIFT_BEHAVIOR\
+#define NAV_LAYER_STICKY_SHIFT_BEHAVIOR \
         nav_sticky_shift: nav_sticky_shift_behavior { \
             SHARED_MODTAP_COMPONENTS \
-            #binding-cells = <0>;                 \
-            bindings = <&mo NAV &sk LSHFT>;              \
+            #binding-cells = <2>; \
+            bindings = <&mo>, <&sk>; \
             hold-trigger-key-positions = <KEYS_MAIN_ALL>; \
         };
         
