@@ -31,10 +31,19 @@
         };
 
 #define NAV_LAYER_STICKY_SHIFT_BEHAVIOR \
+        sticky_key_quick: sticky_key_quick_behavior { \
+            compatible = "zmk,behavior-sticky-key"; \
+            #binding-cells = <1>; \
+            bindings = <&kp>; \
+            /* these 2 lines are the actual changes */ \
+            release-after-ms = <500>; \
+            quick-release; \
+            ignore-modifiers; \
+        }; \
         nav_sticky_shift: nav_sticky_shift_behavior { \
             SHARED_MODTAP_COMPONENTS \
             #binding-cells = <2>; \
-            bindings = <&mo>, <&sk>; \
+            bindings = <&mo>, <&sticky_key_quick>; \
             hold-trigger-key-positions = <KEYS_MAIN_ALL>; \
         };
         
