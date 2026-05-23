@@ -7,6 +7,7 @@
 #define SYMBOLS 2
 #define MAGIC 3
 #define UMLAUT 4
+#define GAMING 5
 
 #define SHARED_MODTAP_COMPONENTS                 \
         compatible = "zmk,behavior-hold-tap"; \
@@ -16,18 +17,23 @@
         require-prior-idle-ms = <60>;         \
         hold-trigger-on-release;
 
+#define HRM_L_TARGET_KEYS \
+    KEYS_MAIN_R KEYS_THUMBS_ALL
+#define HRM_R_TARGET_KEYS \
+    KEYS_MAIN_L KEYS_THUMBS_ALL
+
 #define HRM_BEHAVIORS                                                   \
         hrms_l: hrms_l_behavior {                                       \
             SHARED_MODTAP_COMPONENTS                                       \
             #binding-cells = <2>;                 \
             bindings = <&kp>, <&kp>;              \
-            hold-trigger-key-positions = <KEYS_MAIN_R KEYS_THUMBS_ALL>; \
+            hold-trigger-key-positions = <HRM_L_TARGET_KEYS>; \
         };                                                              \
         hrms_r: hrms_r_behavior {                                       \
             SHARED_MODTAP_COMPONENTS                                       \
             #binding-cells = <2>;                 \
             bindings = <&kp>, <&kp>;              \
-            hold-trigger-key-positions = <KEYS_MAIN_L KEYS_THUMBS_ALL>; \
+            hold-trigger-key-positions = <HRM_R_TARGET_KEYS>; \
         };
 
 #define NAV_LAYER_STICKY_SHIFT_BEHAVIOR \
@@ -46,10 +52,25 @@
             bindings = <&mo>, <&sticky_key_quick>; \
             hold-trigger-key-positions = <KEYS_MAIN_ALL>; \
         };
+
+// for hrm-like on g/h for symbol layer and ' for umlaut layer
+#define HOME_ROW_LAYER_TAP_BEHAVIOR \
+        hrlt_l: hr_layer_tap_l_behavior { \
+            SHARED_MODTAP_COMPONENTS \
+            #binding-cells = <2>; \
+            bindings = <&mo>, <&kp>; \
+            hold-trigger-key-positions = <HRM_L_TARGET_KEYS>; \
+        }; \
+        hrlt_r: hr_layer_tap_r_behavior { \
+            SHARED_MODTAP_COMPONENTS \
+            #binding-cells = <2>; \
+            bindings = <&mo>, <&kp>; \
+            hold-trigger-key-positions = <HRM_R_TARGET_KEYS>; \
+        };
         
 
 #define DEFAULT_HOME_ROW_MAP \
-        &hrms_l LCTRL ESC        &hrms_l LGUI A    &hrms_l LALT S       &hrms_l LCTRL D       &hrms_l LSHFT F       &kp G                               &kp H   &hrms_r RSHFT J   &hrms_r RCTRL K       &hrms_r LALT L       &hrms_r RGUI SEMI    &lt UMLAUT SQT
+        &hrms_l LCTRL ESC        &hrms_l LGUI A    &hrms_l LALT S       &hrms_l LCTRL D       &hrms_l LSHFT F       &hrlt_l SYMBOLS G                               &hrlt_r SYMBOLS H   &hrms_r RSHFT J   &hrms_r RCTRL K       &hrms_r LALT L       &hrms_r RGUI SEMI    &hrlt_r UMLAUT SQT
         
 
 #endif // SHARED_H
