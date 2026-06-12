@@ -50,7 +50,7 @@
             SHARED_MODTAP_COMPONENTS \
             #binding-cells = <2>; \
             bindings = <&mo>, <&sticky_key_quick>; \
-            hold-trigger-key-positions = <KEYS_MAIN_ALL>; \
+            hold-trigger-key-positions = <KEYS_MAIN_ALL KEYS_THUMBS_R>; \
         };
 
 // for hrm-like on g/h for symbol layer and ' for umlaut layer
